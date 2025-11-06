@@ -3,6 +3,7 @@
 import { useEffect, useRef } from "react"
 import Link from "next/link"
 import { HeroSocialIcons } from "./hero-social-icons"
+import heroImage from "@/public/heroImg.jpg"
 
 export default function Hero() {
   const canvasRef = useRef<HTMLCanvasElement>(null)
@@ -106,7 +107,7 @@ export default function Hero() {
         <div className="relative z-10 animate-slide-up" style={{ animationDelay: "0.2s" }}>
           <div className="relative aspect-square rounded-lg overflow-hidden shadow-lg bg-muted">
             <img
-              src="/hero.jpg"
+              src="./heroImg.jpg"
               alt="Professional headshot"
               className="w-full h-full object-cover"
             />
