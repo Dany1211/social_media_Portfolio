@@ -60,16 +60,6 @@ export default function SocialIcons() {
       ),
     },
     {
-      name: "TikTok",
-      url: "#",
-      delay: 400,
-      icon: (
-        <svg width="48" height="48" viewBox="0 0 24 24" fill="currentColor">
-          <path d="M19.321 5.562a5.122 5.122 0 0 1-.868-.084 6.222 6.222 0 0 1-3.772-1.938A6.213 6.213 0 0 1 11 .5v11.5a3.5 3.5 0 1 1-3.5-3.5h.5v-2.04h-.5A5.5 5.5 0 1 0 14.5 12.5V3.262a7.222 7.222 0 0 0 4.821 1.84V3.062a5.122 5.122 0 0 1-.868-.084z" />
-        </svg>
-      ),
-    },
-    {
       name: "Facebook",
       url: "#",
       delay: 500,

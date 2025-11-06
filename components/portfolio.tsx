@@ -49,11 +49,11 @@ export default function Portfolio() {
   }, [])
 
   return (
-    <section id="work" ref={sectionRef} className="py-24 px-4 md:px-12 bg-card/30">
+    <section id="work" ref={sectionRef} className="py-24 px-4 md:px-12">
       <div className="max-w-6xl mx-auto">
         <div className="mb-16">
-          <h2 className="text-4xl md:text-5xl font-light text-foreground animate-slide-up">Selected Work</h2>
-          <p className="text-foreground/60 font-light mt-2 animate-slide-up" style={{ animationDelay: "0.1s" }}>
+          <h2 className="text-4xl md:text-5xl font-semibold text-foreground animate-slide-up">Selected Work</h2>
+          <p className="text-foreground/60 font-normal mt-2 animate-slide-up" style={{ animationDelay: "0.1s" }}>
             Recent projects showcasing strategy and results
           </p>
         </div>
@@ -67,27 +67,27 @@ export default function Portfolio() {
               }}
               onMouseEnter={() => setHoveredIndex(index)}
               onMouseLeave={() => setHoveredIndex(null)}
-              className={`border-b border-border pb-12 group cursor-pointer transition-all duration-500 ${
+              className={`border-b border-border pb-12 group cursor-default transition-all duration-300 ${
                 isVisible ? "animate-slide-up" : "opacity-0"
               }`}
             >
               <div className="grid md:grid-cols-4 gap-8 items-start">
                 <div>
-                  <span className="text-sm font-light text-primary/60">{project.number}</span>
+                  <span className="text-sm font-normal text-foreground/40">{project.number}</span>
                 </div>
                 <div>
-                  <h3 className="text-2xl font-light text-foreground mb-2 group-hover:text-primary transition-colors">
+                  <h3 className="text-2xl font-semibold text-foreground mb-2">
                     {project.title}
                   </h3>
-                  <span className="text-xs font-light text-foreground/50 uppercase tracking-widest">
+                  <span className="text-xs font-medium text-foreground/50 uppercase tracking-widest">
                     {project.category}
                   </span>
                 </div>
                 <div>
-                  <p className="text-sm font-light text-foreground/60 leading-relaxed">{project.description}</p>
+                  <p className="text-sm font-normal text-foreground/60 leading-relaxed">{project.description}</p>
                 </div>
                 <div className="text-right">
-                  <p className="text-sm font-light text-foreground/50">{project.year}</p>
+                  <p className="text-sm font-normal text-foreground/50">{project.year}</p>
                 </div>
               </div>
             </div>

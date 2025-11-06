@@ -1,9 +1,10 @@
 "use client"
 
 import { useEffect, useRef } from "react"
+import { motion } from "framer-motion"
 import Link from "next/link"
 import { HeroSocialIcons } from "./hero-social-icons"
-import heroImage from "@/public/heroImg.jpg"
+import BlurText from "./BlurText"
 
 export default function Hero() {
   const canvasRef = useRef<HTMLCanvasElement>(null)
@@ -77,12 +78,35 @@ export default function Hero() {
         {/* Left: Text Content */}
         <div className="relative z-10 animate-slide-up">
           <div className="mb-6">
-            <span className="text-xs font-light tracking-widest text-primary uppercase">Social Media Strategist</span>
+            <span className="text-sm md:text-base font-medium tracking-widest text-primary uppercase">Social Media Strategist</span>
           </div>
-          <h1 className="text-5xl md:text-6xl font-light leading-tight mb-6 text-foreground">
-            Crafting Digital Stories That <span className="text-primary">Convert</span>
-          </h1>
-          <p className="text-base font-light text-foreground/60 leading-relaxed mb-8 max-w-md">
+          {(
+            () => {
+              const handleAnimationComplete = () => {
+                console.log('Animation completed!')
+              }
+              return (
+                <div className="mb-6 leading-[1.05]">
+                  <BlurText
+                    text="Let's build your"
+                    delay={110}
+                    animateBy="words"
+                    direction="top"
+                    onAnimationComplete={handleAnimationComplete}
+                    className="block text-5xl md:text-7xl lg:text-8xl font-semibold text-foreground"
+                  />
+                  <BlurText
+                    text="BRAND"
+                    delay={160}
+                    animateBy="words"
+                    direction="top"
+                    className="block text-5xl md:text-7xl lg:text-8xl font-semibold text-primary"
+                  />
+                </div>
+              )
+            }
+          )()}
+          <p className="text-base md:text-lg lg:text-xl font-light text-foreground/70 leading-relaxed mb-10 max-w-2xl">
             I help brands build authentic social presence through data-driven strategies, compelling content, and
             genuine audience engagement. Let's create something remarkable together.
           </p>
@@ -90,34 +114,37 @@ export default function Hero() {
           <div className="flex gap-4">
             <Link
               href="#work"
-              className="text-sm font-light px-6 py-3 bg-primary text-primary-foreground rounded hover:shadow-md transition-shadow duration-300"
+              className="text-sm md:text-base font-medium px-6 md:px-7 py-3 md:py-3.5 bg-primary text-primary-foreground rounded hover:shadow-md transition-shadow duration-300"
             >
               View My Work
             </Link>
             <Link
               href="#contact"
-              className="text-sm font-light px-6 py-3 border border-foreground/20 text-foreground rounded hover:border-primary hover:text-primary transition-colors duration-300"
+              className="text-sm md:text-base font-medium px-6 md:px-7 py-3 md:py-3.5 border border-foreground/20 text-foreground rounded hover:border-primary hover:text-primary transition-colors duration-300"
             >
               Let's Talk
             </Link>
           </div>
         </div>
 
-        {/* Right: Professional Photo */}
-        <div className="relative z-10 animate-slide-up" style={{ animationDelay: "0.2s" }}>
-          <div className="relative aspect-square rounded-lg overflow-hidden shadow-lg bg-muted">
+        {/* Right: Professional Photo - Circular & Floating */}
+        <motion.div 
+          className="relative z-10 animate-slide-up" 
+          style={{ animationDelay: "0.2s" }}
+          animate={{ y: [0, -10, 0] }}
+          transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+        >
+          <div className="relative aspect-square rounded-full overflow-hidden shadow-2xl bg-muted ring-8 ring-background">
             <img
-              src="./heroImg.jpg"
+              src="/heroImg.jpg"
               alt="Professional headshot"
               className="w-full h-full object-cover"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/10 to-transparent"></div>
+            <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
           </div>
 
-          <div className="absolute bottom-8 right-8 animate-subtle-shift">
-            <div className="w-3 h-3 bg-primary rounded-full"></div>
-          </div>
-        </div>
+          <div className="absolute -bottom-4 -right-4 w-8 h-8 bg-primary rounded-full shadow-md" />
+        </motion.div>
       </div>
 
       <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2">
