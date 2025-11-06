@@ -119,7 +119,6 @@ export default function WorkExperience() {
                     {exp.highlights.map((highlight, idx) => (
                       <div key={idx} className="p-4 rounded-lg border border-border bg-card text-foreground">
                         <div className="flex items-center gap-2">
-                          <span className="inline-block w-1.5 h-1.5 rounded-full bg-foreground/40"></span>
                           <span className="text-sm">{highlight}</span>
                         </div>
                       </div>

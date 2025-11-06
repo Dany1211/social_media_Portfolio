@@ -10,6 +10,10 @@ export default function Hero() {
   const canvasRef = useRef<HTMLCanvasElement>(null)
 
   useEffect(() => {
+    // Disable canvas effect on small screens
+    if (typeof window !== "undefined" && window.innerWidth < 768) {
+      return
+    }
     const canvas = canvasRef.current
     if (!canvas) return
 
@@ -72,7 +76,7 @@ export default function Hero() {
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20 px-4">
-      <canvas ref={canvasRef} className="absolute inset-0" />
+      <canvas ref={canvasRef} className="hidden md:block absolute inset-0" />
 
       <div className="max-w-5xl w-full grid md:grid-cols-2 gap-12 items-center">
         {/* Left: Text Content */}
@@ -127,24 +131,29 @@ export default function Hero() {
           </div>
         </div>
 
-        {/* Right: Professional Photo - Circular & Floating */}
-        <motion.div 
-          className="relative z-10 animate-slide-up" 
-          style={{ animationDelay: "0.2s" }}
-          animate={{ y: [0, -10, 0] }}
-          transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-        >
-          <div className="relative aspect-square rounded-full overflow-hidden shadow-2xl bg-muted ring-8 ring-background">
-            <img
-              src="/heroImg.jpg"
-              alt="Professional headshot"
-              className="w-full h-full object-cover"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
+        {/* Right: Professional Photo - Circular; smaller and static on mobile, floating on desktop */}
+        <div className="relative z-10 animate-slide-up" style={{ animationDelay: "0.2s" }}>
+          {/* Mobile: smaller static image */}
+          <div className="md:hidden mx-auto w-40 h-40 rounded-full overflow-hidden shadow-lg bg-muted ring-4 ring-background">
+            <img src="/heroImg.jpg" alt="Professional headshot" className="w-full h-full object-cover" />
           </div>
 
-          <div className="absolute -bottom-4 -right-4 w-8 h-8 bg-primary rounded-full shadow-md" />
-        </motion.div>
+          {/* Desktop: larger floating image */}
+          <motion.div
+            className="hidden md:block"
+            animate={{ y: [0, -10, 0] }}
+            transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+          >
+            <div className="relative aspect-square max-w-md rounded-full overflow-hidden shadow-2xl bg-muted ring-8 ring-background">
+              <img
+                src="/heroImg.jpg"
+                alt="Professional headshot"
+                className="w-full h-full object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
+            </div>
+          </motion.div>
+        </div>
       </div>
 
       <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2">

@@ -16,9 +16,13 @@ interface FloatingIcon {
 export default function FloatingSocialIcons() {
   const [icons, setIcons] = useState<FloatingIcon[]>([])
   const [mounted, setMounted] = useState(false)
+  const [isDesktop, setIsDesktop] = useState(false)
 
   useEffect(() => {
     setMounted(true)
+    const check = () => setIsDesktop(window.innerWidth >= 768)
+    check()
+    window.addEventListener('resize', check)
 
     const socialMedia = [
       {
@@ -75,9 +79,10 @@ export default function FloatingSocialIcons() {
     }))
 
     setIcons(generatedIcons)
+    return () => window.removeEventListener('resize', check)
   }, [])
 
-  if (!mounted) return null
+  if (!mounted || !isDesktop) return null
 
   return (
     <div className="fixed inset-0 pointer-events-none overflow-hidden">
