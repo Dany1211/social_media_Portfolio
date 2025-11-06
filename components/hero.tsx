@@ -106,7 +106,7 @@ export default function Hero() {
         <div className="relative z-10 animate-slide-up" style={{ animationDelay: "0.2s" }}>
           <div className="relative aspect-square rounded-lg overflow-hidden shadow-lg bg-muted">
             <img
-              src="/professional-portrait-headshot-social-media-strate.jpg"
+              src="/hero.jpg"
               alt="Professional headshot"
               className="w-full h-full object-cover"
             />

@@ -25,7 +25,7 @@ export default function Header() {
         {/* Left: Logo with minimal design */}
         <Link href="/" className="group flex items-center gap-2">
           <div className="w-2 h-8 bg-primary rounded-full"></div>
-          <span className="text-sm font-light tracking-widest text-foreground">YOUR NAME</span>
+          <span className="text-xl font-bold tracking-widest text-foreground">Snehal Patil</span>
         </Link>
 
         {/* Center: Navigation with underline effect */}
@@ -35,7 +35,7 @@ export default function Header() {
               <Link
                 href={`#${item.toLowerCase()}`}
                 onClick={() => setActiveSection(item.toLowerCase())}
-                className="relative text-sm font-light text-foreground/70 hover:text-foreground transition-colors duration-300 group"
+                className="relative text-lg font-light text-foreground/70 hover:text-foreground transition-colors duration-300 group"
               >
                 {item}
                 <span className="absolute bottom-0 left-0 h-px bg-primary w-0 group-hover:w-full transition-all duration-300"></span>
@@ -47,7 +47,7 @@ export default function Header() {
         {/* Right: CTA Button */}
         <Link
           href="#contact"
-          className="text-xs font-light px-4 py-2 border border-foreground/30 rounded hover:border-primary hover:text-primary transition-colors duration-300"
+          className="text-lg font-light px-4 py-2 border border-foreground/30 rounded hover:border-primary hover:text-primary transition-colors duration-300"
         >
           Get in Touch
         </Link>
