@@ -19,7 +19,7 @@ export default function SocialIcons() {
   const socialIcons: Icon[] = [
     {
       name: "Instagram",
-      url: "#",
+      url: "https://www.instagram.com/snehalpatil._.76?igsh=NWVleHJoYmRqa2Vr",
       delay: 0,
       icon: (
         <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
@@ -31,7 +31,7 @@ export default function SocialIcons() {
     },
     {
       name: "Twitter",
-      url: "#",
+      url: "https://x.com/Snehalpatil76?t=VFIxxeiAxl_JvubGToYgHQ&s=09",
       delay: 100,
       icon: (
         <svg width="48" height="48" viewBox="0 0 24 24" fill="currentColor">
@@ -41,7 +41,7 @@ export default function SocialIcons() {
     },
     {
       name: "LinkedIn",
-      url: "#",
+      url: "https://www.linkedin.com/in/snehal-patil-14474b292?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
       delay: 200,
       icon: (
         <svg width="48" height="48" viewBox="0 0 24 24" fill="currentColor">
@@ -51,7 +51,7 @@ export default function SocialIcons() {
     },
     {
       name: "YouTube",
-      url: "#",
+      url: "https://youtube.com/@snehal5276?si=owbXzBCoYtpPxDJN",
       delay: 300,
       icon: (
         <svg width="48" height="48" viewBox="0 0 24 24" fill="currentColor">
@@ -61,7 +61,7 @@ export default function SocialIcons() {
     },
     {
       name: "Facebook",
-      url: "#",
+      url: "https://www.facebook.com/share/1BmrxUBLSj/",
       delay: 500,
       icon: (
         <svg width="48" height="48" viewBox="0 0 24 24" fill="currentColor">
