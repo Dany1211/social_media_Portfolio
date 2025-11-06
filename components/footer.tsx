@@ -28,7 +28,7 @@ export default function Footer() {
           <div>
             <h4 className="font-semibold text-foreground mb-4">Connect</h4>
             <ul className="space-y-2 text-muted-foreground">
-              {["Instagram", "TikTok", "LinkedIn", "Twitter"].map((social) => (
+              {["Instagram", "LinkedIn", "Twitter"].map((social) => (
                 <li key={social}>
                   <a href="#" className="hover:text-primary transition-colors duration-300">
                     {social}
