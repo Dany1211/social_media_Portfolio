@@ -111,8 +111,7 @@ export default function Hero() {
             }
           )()}
           <p className="text-base md:text-lg lg:text-xl font-light text-foreground/70 leading-relaxed mb-10 max-w-2xl">
-            I help brands build authentic social presence through data-driven strategies, compelling content, and
-            genuine audience engagement. Let's create something remarkable together.
+            I help brands build an authentic social presence through data driven strategy, ad campaigns, content, and real audience engagement.
           </p>
 
           <div className="flex gap-4">
