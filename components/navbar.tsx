@@ -3,12 +3,13 @@
 import { useState } from "react"
 import Link from "next/link"
 import { motion, AnimatePresence } from "framer-motion"
-import { Home, Briefcase, Zap, Mail, Menu, X, Instagram, Linkedin } from "lucide-react"
+import { Home, Briefcase, Zap, Mail, Menu, X, Instagram, Linkedin, Star, FolderOpen } from "lucide-react"
 
 const navItems = [
     { name: "HOME", icon: <Home className="w-5 h-5" />, href: "#home" },
-    { name: "WORK", icon: <Briefcase className="w-5 h-5" />, href: "#work" },
+    { name: "EXPERIENCE", icon: <Star className="w-5 h-5" />, href: "#experience" },
     { name: "SERVICES", icon: <Zap className="w-5 h-5" />, href: "#services" },
+    { name: "PROOF", icon: <FolderOpen className="w-5 h-5" />, href: "#work" },
     { name: "CONTACT", icon: <Mail className="w-5 h-5" />, href: "#contact" },
 ]
 
@@ -90,28 +91,33 @@ export function Navbar() {
             {/* MOBILE NAV (Fixed Bottom Bar) */}
             <div className="fixed bottom-0 left-0 right-0 z-50 md:hidden">
                 {/* Visual "Command Bar" */}
-                <div className="bg-background border-t-2 border-foreground p-4 grid grid-cols-5 items-center shadow-[0px_-4px_0px_0px_rgba(0,0,0,0.1)] gap-2">
+                {/* Visual "Command Bar" */}
+                <div className="bg-background border-t-2 border-foreground p-3 grid grid-cols-6 items-center shadow-[0px_-4px_0px_0px_rgba(0,0,0,0.1)] gap-1">
 
                     {/* Brand / Home */}
                     <div className="col-span-1 flex justify-center">
                         <Link href="#home" onClick={(e) => handleScroll(e, "#home")} className="bg-primary p-2 border-2 border-foreground shadow-[2px_2px_0px_0px_var(--color-foreground)] active:translate-x-[2px] active:translate-y-[2px] active:shadow-none transition-all">
-                            <Home className="w-6 h-6 text-foreground" />
+                            <Home className="w-5 h-5 text-foreground" />
                         </Link>
                     </div>
 
                     {/* Quick Action Links (Middle) */}
-                    <div className="col-span-3 flex justify-center gap-4">
-                        <Link href="#work" onClick={(e) => handleScroll(e, "#work")} className="flex flex-col items-center gap-1 group">
-                            <Briefcase className="w-5 h-5 text-muted-foreground group-hover:text-foreground transition-colors" />
-                            <span className="text-[10px] font-bold uppercase">Work</span>
+                    <div className="col-span-4 flex justify-between gap-1 px-2">
+                        <Link href="#experience" onClick={(e) => handleScroll(e, "#experience")} className="flex flex-col items-center gap-1 group min-w-[50px]">
+                            <Star className="w-4 h-4 text-muted-foreground group-hover:text-foreground transition-colors" />
+                            <span className="text-[9px] font-bold uppercase truncate">Exp</span>
                         </Link>
-                        <Link href="#services" onClick={(e) => handleScroll(e, "#services")} className="flex flex-col items-center gap-1 group">
-                            <Zap className="w-5 h-5 text-muted-foreground group-hover:text-foreground transition-colors" />
-                            <span className="text-[10px] font-bold uppercase">Services</span>
+                        <Link href="#services" onClick={(e) => handleScroll(e, "#services")} className="flex flex-col items-center gap-1 group min-w-[50px]">
+                            <Zap className="w-4 h-4 text-muted-foreground group-hover:text-foreground transition-colors" />
+                            <span className="text-[9px] font-bold uppercase truncate">Services</span>
                         </Link>
-                        <Link href="#contact" onClick={(e) => handleScroll(e, "#contact")} className="flex flex-col items-center gap-1 group">
-                            <Mail className="w-5 h-5 text-muted-foreground group-hover:text-foreground transition-colors" />
-                            <span className="text-[10px] font-bold uppercase">Contact</span>
+                        <Link href="#work" onClick={(e) => handleScroll(e, "#work")} className="flex flex-col items-center gap-1 group min-w-[50px]">
+                            <FolderOpen className="w-4 h-4 text-muted-foreground group-hover:text-foreground transition-colors" />
+                            <span className="text-[9px] font-bold uppercase truncate">Proof</span>
+                        </Link>
+                        <Link href="#contact" onClick={(e) => handleScroll(e, "#contact")} className="flex flex-col items-center gap-1 group min-w-[50px]">
+                            <Mail className="w-4 h-4 text-muted-foreground group-hover:text-foreground transition-colors" />
+                            <span className="text-[9px] font-bold uppercase truncate">Contact</span>
                         </Link>
                     </div>
 
