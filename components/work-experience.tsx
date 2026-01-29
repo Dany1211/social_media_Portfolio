@@ -53,79 +53,59 @@ const achievements = [
 
 export default function WorkExperience() {
   const containerRef = useRef<HTMLDivElement>(null)
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ["start end", "end start"],
-  })
-
-  // Optional parallax values
-  const y = useTransform(scrollYProgress, [0, 1], [100, -100])
-  const opacity = useTransform(scrollYProgress, [0, 0.2], [0, 1])
 
   return (
-    <section id="experience" className="py-24 px-4 overflow-hidden relative">
-      {/* Background Decorative Elements */}
-      <motion.div style={{ y }} className="absolute top-0 right-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl -z-10" />
-      <motion.div style={{ y: useTransform(scrollYProgress, [0, 1], [-50, 50]) }} className="absolute bottom-0 left-0 w-72 h-72 bg-secondary/30 rounded-full blur-3xl -z-10" />
-
-      <div className="max-w-7xl mx-auto" ref={containerRef}>
+    <section id="experience" className="py-24 px-4 overflow-hidden relative" ref={containerRef}>
+      <div className="max-w-7xl mx-auto">
         <motion.div
-          style={{ opacity }}
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0, scale: 0.9 }}
+          whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          transition={{ duration: 0.5 }}
+          className="mb-16 border-b-4 border-foreground pb-4"
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-foreground tracking-tight">
-            Professional <span className="text-primary italic">Highlights</span>
+          <h2 className="text-5xl md:text-7xl font-black text-foreground uppercase tracking-tighter">
+            PRO <span className="text-primary text-stroke-foreground">HIGHLIGHTS</span>
           </h2>
         </motion.div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24 relative">
-          {/* Vertical Divider for large screens */}
-          <div className="hidden lg:block absolute left-1/2 top-0 bottom-0 w-[1px] bg-gradient-to-b from-transparent via-border to-transparent -translate-x-1/2" />
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24">
 
           {/* LEFT COLUMN: EXPERIENCE */}
           <div>
-            <div className="flex items-center gap-3 mb-10">
-              <span className="text-2xl font-bold text-foreground">Experience</span>
-              <div className="h-[1px] flex-1 bg-border/60" />
-            </div>
+            <h3 className="text-2xl font-bold border-2 border-foreground bg-primary text-primary-foreground p-3 inline-block mb-8 shadow-[4px_4px_0px_0px_var(--color-foreground)]">
+              EXPERIENCE
+            </h3>
 
-            <div className="relative border-l-2 border-primary/20 ml-3 space-y-12">
+            <div className="relative border-l-4 border-foreground ml-3 space-y-12 pl-8">
               {experiences.map((exp, index) => (
                 <motion.div
                   key={exp.id}
-                  initial={{ opacity: 0, x: -20 }}
+                  initial={{ opacity: 0, x: -50 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
-                  className="relative pl-8"
+                  className="relative group cursor-default"
                 >
-                  {/* Timeline Dot */}
-                  <div className="absolute -left-[9px] top-1.5 w-[16px] h-[16px] rounded-full bg-background border-2 border-primary shadow-[0_0_0_4px_rgba(var(--primary),0.1)]">
-                    <div className="absolute inset-0 m-auto w-1.5 h-1.5 bg-primary rounded-full" />
-                  </div>
+                  {/* Timeline Square */}
+                  <div className="absolute -left-[43px] top-1.5 w-6 h-6 bg-background border-4 border-foreground group-hover:bg-primary transition-colors duration-300" />
 
                   <div className="flex flex-col items-start text-left">
-                    <div className="inline-block px-3 py-1 rounded-full bg-secondary/50 border border-secondary-foreground/10 text-xs font-semibold tracking-wider uppercase text-secondary-foreground mb-2">
+                    <span className="inline-block px-2 py-1 text-sm font-bold bg-foreground text-background mb-2">
                       {exp.period}
-                    </div>
-                    <h3 className="text-xl md:text-2xl font-bold text-foreground mb-1">
+                    </span>
+                    <h3 className="text-2xl font-black text-foreground uppercase">
                       {exp.role}
                     </h3>
-                    <div className="text-base text-primary font-medium mb-2">
-                      {exp.company}
+                    <div className="text-lg font-bold text-primary mb-1">
+                      @{exp.company}
                     </div>
-                    <p className="text-sm text-foreground/50 mb-1">
+                    <p className="text-xs font-mono text-muted-foreground uppercase tracking-wide mb-3">
                       {exp.location}
                     </p>
-                    {exp.description && (
-                      <p className="text-muted-foreground leading-relaxed text-sm mt-2 font-light">
-                        {exp.description}
-                      </p>
-                    )}
+                    <p className="text-base font-medium border-l-2 border-primary/50 pl-4">
+                      {exp.description}
+                    </p>
                   </div>
                 </motion.div>
               ))}
@@ -134,31 +114,30 @@ export default function WorkExperience() {
 
           {/* RIGHT COLUMN: ACHIEVEMENTS */}
           <div>
-            <div className="flex items-center gap-3 mb-10">
-              <span className="text-2xl font-bold text-foreground">Achievements</span>
-              <div className="h-[1px] flex-1 bg-border/60" />
-            </div>
+            <h3 className="text-2xl font-bold border-2 border-foreground bg-accent text-accent-foreground p-3 inline-block mb-8 shadow-[4px_4px_0px_0px_var(--color-foreground)]">
+              ACHIEVEMENTS
+            </h3>
 
             <div className="grid gap-6">
               {achievements.map((ach, index) => (
                 <motion.div
                   key={ach.id}
-                  initial={{ opacity: 0, x: 20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
+                  initial={{ opacity: 0, y: 50 }}
+                  whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
-                  whileHover={{ y: -5 }}
-                  className="p-6 rounded-2xl border border-border bg-card/40 backdrop-blur-sm shadow-sm hover:shadow-md transition-all duration-300 group"
+                  whileHover={{ translateX: 5, translateY: -5, boxShadow: "8px 8px 0px 0px var(--color-foreground)" }}
+                  className="p-6 border-2 border-foreground bg-background shadow-[4px_4px_0px_0px_var(--color-foreground)] transition-all duration-300 group"
                 >
                   <div className="flex items-start justify-between mb-2">
-                    <h3 className="text-lg font-semibold text-foreground group-hover:text-primary transition-colors">
+                    <h3 className="text-xl font-bold text-foreground">
                       {ach.title}
                     </h3>
-                    <span className="text-3xl font-bold text-primary opacity-80 decoration-slice">
+                    <span className="text-4xl font-black text-primary">
                       {ach.metric}
                     </span>
                   </div>
-                  <p className="text-muted-foreground font-light leading-relaxed">
+                  <p className="font-medium text-foreground/80">
                     {ach.description}
                   </p>
                 </motion.div>
