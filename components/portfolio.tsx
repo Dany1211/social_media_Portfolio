@@ -1,96 +1,83 @@
 "use client"
 
-import { useState, useRef, useEffect } from "react"
+import { useState, useRef } from "react"
+import { motion } from "framer-motion"
+import { ArrowUpRight, FolderOpen } from "lucide-react"
 
-const projects = [
+const showcaseItems = [
   {
     number: "01",
-    title: "Brand Transformation",
-    category: "Strategy",
-    description: "Repositioned brand identity, resulting in 340% engagement growth",
-    year: "2024",
+    title: "Client Testimonials",
+    subtitle: "Real Results",
   },
   {
     number: "02",
-    title: "Viral Campaign",
-    category: "Content",
-    description: "Generated 12M impressions and 450K new followers in 60 days",
-    year: "2024",
+    title: "Performance Dashboards",
+    subtitle: "Data & Analytics",
   },
   {
     number: "03",
-    title: "Community Growth",
-    category: "Engagement",
-    description: "Built engaged communities with 95% positive sentiment rate",
-    year: "2023",
+    title: "Campaign Insights",
+    subtitle: "Strategy Breakdown",
+  },
+  {
+    number: "04",
+    title: "Content Snapshots",
+    subtitle: "Creative Growth",
   },
 ]
 
 export default function Portfolio() {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null)
   const sectionRef = useRef<HTMLDivElement>(null)
-  const [isVisible, setIsVisible] = useState(false)
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        if (entries[0].isIntersecting) {
-          setIsVisible(true)
-        }
-      },
-      { threshold: 0.1 },
-    )
-
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current)
-    }
-
-    return () => observer.disconnect()
-  }, [])
 
   return (
-    <section id="work" ref={sectionRef} className="py-24 px-4 md:px-12">
+    <section id="work" ref={sectionRef} className="py-24 px-4 md:px-12 bg-background">
       <div className="max-w-6xl mx-auto">
-        <div className="mb-16">
-          <h2 className="text-4xl md:text-5xl font-semibold text-foreground animate-slide-up">Selected Work</h2>
-          <p className="text-foreground/60 font-normal mt-2 animate-slide-up" style={{ animationDelay: "0.1s" }}>
-            Recent projects showcasing strategy and results
-          </p>
+        <div className="mb-16 border-b-4 border-foreground pb-6">
+          <h2 className="text-5xl md:text-8xl font-black text-foreground uppercase tracking-tighter">
+            PROOF OF <span className="text-primary">WORK</span>
+          </h2>
+          <div className="mt-6 flex items-start gap-4 max-w-2xl">
+            <FolderOpen className="w-8 h-8 text-foreground" />
+            <p className="text-xl font-bold font-mono text-muted-foreground">
+              I believe in showing the process and results, not just talking about them.
+            </p>
+          </div>
         </div>
 
-        <div className="space-y-12">
-          {projects.map((project, index) => (
-            <div
-              key={project.number}
-              style={{
-                animationDelay: `${isVisible ? index * 100 : 0}ms`,
-              }}
+        <div className="flex flex-col border-t-4 border-foreground">
+          {showcaseItems.map((item, index) => (
+            <motion.div
+              key={item.number}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: index * 0.1 }}
               onMouseEnter={() => setHoveredIndex(index)}
               onMouseLeave={() => setHoveredIndex(null)}
-              className={`border-b border-border pb-12 group cursor-default transition-all duration-300 ${
-                isVisible ? "animate-slide-up" : "opacity-0"
-              }`}
+              className="border-b-4 border-foreground py-8 md:py-12 group cursor-pointer relative overflow-hidden transition-colors hover:bg-foreground"
             >
-              <div className="grid md:grid-cols-4 gap-8 items-start">
-                <div>
-                  <span className="text-sm font-normal text-foreground/40">{project.number}</span>
-                </div>
-                <div>
-                  <h3 className="text-2xl font-semibold text-foreground mb-2">
-                    {project.title}
-                  </h3>
-                  <span className="text-xs font-medium text-foreground/50 uppercase tracking-widest">
-                    {project.category}
+              <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 relative z-10 px-4 md:px-8">
+                <div className="flex items-baseline gap-6 md:gap-12">
+                  <span className="text-2xl md:text-3xl font-mono font-bold text-muted-foreground group-hover:text-background/50 transition-colors">
+                    {item.number}
                   </span>
+                  <div>
+                    <h3 className="text-3xl md:text-5xl font-black text-foreground uppercase group-hover:text-background transition-colors">
+                      {item.title}
+                    </h3>
+                    <p className="text-lg font-mono text-primary font-bold mt-2 group-hover:text-primary-foreground">{item.subtitle}</p>
+                  </div>
                 </div>
-                <div>
-                  <p className="text-sm font-normal text-foreground/60 leading-relaxed">{project.description}</p>
-                </div>
-                <div className="text-right">
-                  <p className="text-sm font-normal text-foreground/50">{project.year}</p>
+
+                <div className="opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-x-10 group-hover:translate-x-0">
+                  <div className="bg-primary text-primary-foreground p-4 rounded-full border-2 border-background">
+                    <ArrowUpRight className="w-8 h-8" />
+                  </div>
                 </div>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>
