@@ -10,7 +10,7 @@ import SocialIcons from "@/components/social-icons"
 import Contact from "@/components/contact"
 import Footer from "@/components/footer"
 import { Navbar } from "@/components/navbar"
-import { ThemeSwitcher } from "@/components/theme-switcher"
+
 
 export default function Home() {
   const [mounted, setMounted] = useState(false)
@@ -24,7 +24,7 @@ export default function Home() {
   return (
     <main className="min-h-screen bg-background text-foreground transition-colors duration-500 pb-24 md:pb-32">
       <Navbar />
-      <ThemeSwitcher />
+
 
       {/* Main Content */}
       <div className="w-full">
