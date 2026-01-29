@@ -69,6 +69,16 @@ export default function SocialIcons() {
         </svg>
       ),
     },
+    {
+      name: "Gmail",
+      url: "mailto:snehalpatil5276@gmail.com",
+      delay: 600,
+      icon: (
+        <svg width="48" height="48" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" />
+        </svg>
+      ),
+    },
   ]
 
   useEffect(() => {
@@ -125,8 +135,8 @@ export default function SocialIcons() {
             >
               <div
                 className={`w-32 h-32 rounded-2xl bg-gradient-to-br from-primary/10 to-accent/10 border-3 border-primary flex items-center justify-center transition-all duration-300 ${hoveredIcon === icon.name
-                    ? "border-primary bg-primary/20 scale-125 shadow-2xl -translate-y-3"
-                    : "hover:border-accent hover:scale-110"
+                  ? "border-primary bg-primary/20 scale-125 shadow-2xl -translate-y-3"
+                  : "hover:border-accent hover:scale-110"
                   } cursor-pointer group-hover:animate-glow text-primary hover:text-accent`}
               >
                 {icon.icon}

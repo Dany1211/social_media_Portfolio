@@ -1,21 +1,10 @@
 "use client"
 
-import type React from "react"
-import { useState } from "react"
 import { Send } from "lucide-react"
+import { toast } from "sonner"
 
 export default function Contact() {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    message: "",
-  })
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault()
-    console.log("Form submitted:", formData)
-    setFormData({ name: "", email: "", message: "" })
-  }
 
   return (
     <section id="contact" className="py-24 px-4 md:px-8 bg-accent border-t-4 border-foreground relative overflow-hidden">
@@ -34,13 +23,38 @@ export default function Contact() {
           </p>
         </div>
 
-        <form onSubmit={handleSubmit} className="space-y-6">
+        <form onSubmit={async (e) => {
+          e.preventDefault();
+          const formData = new FormData(e.currentTarget);
+
+          const promise = fetch("https://formsubmit.co/ajax/snehalpatil5276@gmail.com", {
+            method: "POST",
+            body: formData
+          }).then(r => r.json());
+
+          toast.promise(promise, {
+            loading: 'Sending your message...',
+            success: 'Message sent successfully! I will get back to you soon.',
+            error: 'Something went wrong. Please try again.',
+          });
+
+          try {
+            await promise;
+            (e.target as HTMLFormElement).reset();
+          } catch (error) {
+            console.error(error);
+          }
+        }} className="space-y-6">
+
+          <input type="hidden" name="_captcha" value="false" />
+          <input type="hidden" name="_template" value="table" />
+
           <div>
             <label className="block text-sm font-black text-foreground uppercase tracking-wider mb-2">Name</label>
             <input
               type="text"
-              value={formData.name}
-              onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+              name="name"
+              required
               className="w-full px-4 py-4 bg-background border-2 border-foreground focus:border-primary focus:shadow-[4px_4px_0px_0px_var(--color-primary)] outline-none transition-all placeholder:text-muted-foreground/50 font-bold"
               placeholder="YOUR NAME"
             />
@@ -50,8 +64,8 @@ export default function Contact() {
             <label className="block text-sm font-black text-foreground uppercase tracking-wider mb-2">Email</label>
             <input
               type="email"
-              value={formData.email}
-              onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+              name="email"
+              required
               className="w-full px-4 py-4 bg-background border-2 border-foreground focus:border-primary focus:shadow-[4px_4px_0px_0px_var(--color-primary)] outline-none transition-all placeholder:text-muted-foreground/50 font-bold"
               placeholder="YOUR@EMAIL.COM"
             />
@@ -60,8 +74,8 @@ export default function Contact() {
           <div>
             <label className="block text-sm font-black text-foreground uppercase tracking-wider mb-2">Message</label>
             <textarea
-              value={formData.message}
-              onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+              name="message"
+              required
               rows={5}
               className="w-full px-4 py-4 bg-background border-2 border-foreground focus:border-primary focus:shadow-[4px_4px_0px_0px_var(--color-primary)] outline-none transition-all resize-none placeholder:text-muted-foreground/50 font-bold"
               placeholder="TELL ME ABOUT YOUR PROJECT..."

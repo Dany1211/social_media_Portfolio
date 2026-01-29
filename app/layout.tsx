@@ -3,6 +3,7 @@ import type { Metadata } from "next"
 import { Inter } from "next/font/google"
 import { Analytics } from "@vercel/analytics/next"
 import "./globals.css"
+import { Toaster } from "sonner"
 
 const inter = Inter({ subsets: ["latin"], display: "swap" })
 
@@ -22,6 +23,13 @@ export default function RootLayout({
       <body className={`${inter.className} font-sans antialiased`}>
         {children}
         <Analytics />
+        <Toaster position="top-right" richColors closeButton toastOptions={{
+          style: {
+            border: "2px solid var(--color-foreground)",
+            boxShadow: "4px 4px 0px 0px var(--color-foreground)",
+            fontWeight: "bold",
+          }
+        }} />
       </body>
     </html>
   )
