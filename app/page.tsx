@@ -9,7 +9,7 @@ import WorkExperience from "@/components/work-experience"
 import SocialIcons from "@/components/social-icons"
 import Contact from "@/components/contact"
 import Footer from "@/components/footer"
-import { FloatingNav } from "@/components/floating-nav"
+import { Navbar } from "@/components/navbar"
 import { ThemeSwitcher } from "@/components/theme-switcher"
 
 export default function Home() {
@@ -22,12 +22,12 @@ export default function Home() {
   if (!mounted) return null
 
   return (
-    <main className="min-h-screen bg-background text-foreground transition-colors duration-500">
-      <FloatingNav />
+    <main className="min-h-screen bg-background text-foreground transition-colors duration-500 pb-24 md:pb-32">
+      <Navbar />
       <ThemeSwitcher />
 
       {/* Main Content */}
-      <div className="md:pl-20"> {/* Offset for floating nav on desktop */}
+      <div className="w-full">
         <Hero />
         <WorkExperience />
         <Services />
