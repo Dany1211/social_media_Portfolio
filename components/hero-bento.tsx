@@ -1,100 +1,117 @@
 "use client"
 
-import { motion } from "framer-motion"
+import { motion, useScroll, useTransform } from "framer-motion"
 import Link from "next/link"
-import { ArrowUpRight, TrendingUp, Users, Play, Calendar } from "lucide-react"
+import { ArrowUpRight, TrendingUp, Sparkles, Star } from "lucide-react"
 
 export function HeroBento() {
+    const { scrollY } = useScroll()
+    const y1 = useTransform(scrollY, [0, 500], [0, 200])
+    const y2 = useTransform(scrollY, [0, 500], [0, -150])
+
     return (
-        <div className="w-full max-w-7xl mx-auto p-4 md:p-8 grid grid-cols-1 md:grid-cols-4 md:grid-rows-3 gap-4 h-auto md:h-[800px]">
+        <div className="relative min-h-[90vh] md:min-h-screen w-full overflow-hidden flex flex-col items-center justify-center bg-background">
 
-            {/* Block 1: Headline (Large, Top Left) */}
+            {/* BACKGROUND MASSIVE TEXT (Parallax moving down) */}
             <motion.div
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.5 }}
-                className="md:col-span-2 md:row-span-2 bg-background border-2 border-primary rounded-xl p-8 flex flex-col justify-center relative overflow-hidden group hover:shadow-[8px_8px_0px_0px_var(--color-primary)] transition-all duration-300"
+                style={{ y: y1 }}
+                className="absolute inset-0 flex flex-col justify-center items-center opacity-10 select-none pointer-events-none z-0"
             >
-                <div className="absolute top-4 left-4 bg-primary text-primary-foreground px-3 py-1 text-xs font-bold uppercase tracking-wider rounded-full border border-primary-foreground">
-                    Available for Hire
-                </div>
-                <h1 className="text-5xl md:text-7xl font-extrabold leading-tight tracking-tighter mt-8">
-                    SOCIAL <span className="text-primary">MEDIA</span> THAT <span className="italic decoration-wavy underline decoration-accent">CONVERTS.</span>
+                <h1 className="text-[15vw] md:text-[18vw] font-black leading-none text-foreground text-center tracking-tighter whitespace-nowrap">
+                    SOCIAL
                 </h1>
-                <p className="mt-6 text-lg text-muted-foreground font-medium max-w-md">
-                    Stop posting into the void. I build data-driven content strategies that actually grow your revenue.
-                </p>
+                <h1 className="text-[15vw] md:text-[18vw] font-black leading-none text-transparent text-stroke-foreground text-center tracking-tighter whitespace-nowrap">
+                    EMPIRE
+                </h1>
             </motion.div>
 
-            {/* Block 2: Profile Image (Top Right) */}
-            <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.2 }}
-                className="md:col-span-1 md:row-span-2 bg-accent border-2 border-foreground rounded-xl overflow-hidden relative group"
-            >
-                <img
-                    src="/heroImg.jpg"
-                    alt="Snehal Profile"
-                    className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500 scale-100 group-hover:scale-110"
-                />
-                <div className="absolute bottom-0 left-0 right-0 bg-background/90 border-t-2 border-foreground p-4">
-                    <p className="font-bold text-lg">Snehal Patil</p>
-                    <p className="text-xs text-muted-foreground">Top 1% Social Strategist</p>
+            {/* FOREGROUND LAYOUT */}
+            <div className="relative z-10 w-full max-w-7xl mx-auto px-4 h-full flex flex-col md:flex-row items-center justify-center">
+
+                {/* LEFT: Intro Text & CTA */}
+                <div className="flex-1 text-center md:text-left pt-20 md:pt-0 relative order-2 md:order-1">
+                    <motion.div
+                        initial={{ opacity: 0, x: -50 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ duration: 0.8 }}
+                        className="relative z-20"
+                    >
+                        <div className="bg-primary text-primary-foreground px-4 py-1 text-sm font-bold uppercase tracking-widest inline-block mb-6 border-2 border-foreground shadow-[4px_4px_0px_0px_var(--color-foreground)] -rotate-2">
+                            Available for Hire
+                        </div>
+
+                        <h2 className="text-4xl md:text-6xl font-black text-foreground uppercase leading-[0.9] tracking-tighter mb-6 relative">
+                            Turn <span className="text-primary italic">Followers</span><br />
+                            Into <span className="bg-foreground text-background px-2">Revenue</span>
+                        </h2>
+
+                        <p className="text-lg md:text-xl font-medium text-muted-foreground max-w-md mb-8 leading-relaxed">
+                            Stop posting into the void. I build data-driven content strategies that actually grow your business.
+                        </p>
+
+                        <Link href="#contact" className="inline-flex items-center gap-3 bg-foreground text-background px-8 py-4 text-xl font-black uppercase tracking-wider hover:bg-primary hover:text-foreground hover:scale-105 hover:-rotate-1 hover:shadow-[6px_6px_0px_0px_var(--color-foreground)] transition-all duration-300 border-2 border-foreground group">
+                            Book a Call
+                            <ArrowUpRight className="w-6 h-6 group-hover:rotate-45 transition-transform" />
+                        </Link>
+                    </motion.div>
                 </div>
-            </motion.div>
 
-            {/* Block 3: Stats (Middle Right) */}
-            <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.3 }}
-                className="md:col-span-1 md:row-span-1 bg-secondary border-2 border-foreground rounded-xl p-6 flex flex-col justify-between hover:translate-y-[-4px] transition-transform"
-            >
-                <div className="flex justify-between items-start">
-                    <div className="bg-primary/20 p-2 rounded-lg">
-                        <TrendingUp className="w-6 h-6 text-primary" />
+                {/* CENTER/RIGHT: Portrait Layer (Overlapping) */}
+                <motion.div
+                    style={{ y: y2 }}
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 0.8, delay: 0.2 }}
+                    className="relative flex-1 flex justify-center order-1 md:order-2 mb-12 md:mb-0"
+                >
+                    <div className="relative w-[300px] h-[400px] md:w-[450px] md:h-[600px] bg-secondary border-4 border-foreground shadow-[12px_12px_0px_0px_var(--color-foreground)] rotate-2 hover:rotate-0 transition-transform duration-500 overflow-hidden group">
+                        <img
+                            src="/heroImg.jpg"
+                            alt="Snehal Profile"
+                            className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500 scale-110 group-hover:scale-100"
+                        />
+
+                        {/* Floating Badge on Image */}
+                        <div className="absolute bottom-6 right-6 bg-primary text-foreground p-3 md:p-4 border-2 border-foreground rounded-full animate-spin-slow">
+                            <Sparkles className="w-8 h-8 md:w-10 md:h-10" />
+                        </div>
                     </div>
-                    <span className="text-xs font-bold bg-foreground text-background px-2 py-1 rounded">+24%</span>
-                </div>
-                <div>
-                    <p className="text-4xl font-black">1.2M+</p>
-                    <p className="text-sm font-bold text-muted-foreground uppercase">Accounts Reached</p>
-                </div>
-            </motion.div>
 
-            {/* Block 4: Ticker (Bottom, Wide) */}
-            <motion.div
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.5, delay: 0.4 }}
-                className="md:col-span-3 md:row-span-1 bg-foreground text-background border-2 border-foreground rounded-xl flex items-center overflow-hidden relative"
-            >
-                <div className="absolute inset-0 flex items-center animate-marquee whitespace-nowrap">
-                    {Array(5).fill("STRATEGY • CONTENT CREATION • LEAD GENERATION • BRANDING • ANALYTICS • ").map((text, i) => (
-                        <span key={i} className="text-4xl md:text-5xl font-black mx-4 opacity-50">{text}</span>
+                    {/* FLOATING STICKER 1: Stats */}
+                    <motion.div
+                        animate={{ y: [0, -10, 0] }}
+                        transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+                        className="absolute top-[20%] -left-[10%] md:-left-[20%] bg-background border-2 border-foreground p-4 shadow-[6px_6px_0px_0px_var(--color-foreground)] -rotate-6 hidden md:block"
+                    >
+                        <div className="flex items-center gap-2 mb-1">
+                            <TrendingUp className="w-5 h-5 text-primary" />
+                            <span className="font-bold text-sm uppercase">Reach</span>
+                        </div>
+                        <p className="text-3xl font-black">1.2M+</p>
+                    </motion.div>
+
+                    {/* FLOATING STICKER 2: Rating */}
+                    <motion.div
+                        animate={{ y: [0, 10, 0] }}
+                        transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+                        className="absolute bottom-[10%] -right-[5%] md:-right-[10%] bg-accent text-accent-foreground border-2 border-foreground p-3 shadow-[6px_6px_0px_0px_var(--color-foreground)] rotate-3 hidden md:block"
+                    >
+                        <div className="flex gap-1 mb-1 justify-center">
+                            {[1, 2, 3, 4, 5].map(i => <Star key={i} className="w-4 h-4 fill-current" />)}
+                        </div>
+                        <p className="font-black text-center text-sm uppercase">Top 1% Talent</p>
+                    </motion.div>
+                </motion.div>
+            </div>
+
+            {/* BOTTOM MARQUEE BAR */}
+            <div className="absolute bottom-0 left-0 right-0 bg-primary border-t-4 border-foreground py-3 overflow-hidden z-20">
+                <div className="flex animate-marquee whitespace-nowrap">
+                    {Array(8).fill("STRATEGY • CONTENT • ANALYTICS • GROWTH • ").map((text, i) => (
+                        <span key={i} className="text-xl md:text-2xl font-black uppercase text-foreground mx-4 italic tracking-widest">{text}</span>
                     ))}
                 </div>
-            </motion.div>
-
-            {/* Block 5: CTA (Bottom Right) */}
-            <motion.div
-                initial={{ opacity: 0, x: 20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.5, delay: 0.5 }}
-                className="md:col-span-1 md:row-span-1 bg-primary border-2 border-foreground rounded-xl p-6 flex flex-col justify-center items-center text-center cursor-pointer group hover:bg-primary/90 transition-colors"
-            >
-                <Link href="#contact" className="flex flex-col items-center gap-4 w-full h-full justify-center">
-                    <div className="bg-background border-2 border-foreground p-3 rounded-full group-hover:rotate-45 transition-transform duration-300">
-                        <ArrowUpRight className="w-6 h-6 text-foreground" />
-                    </div>
-                    <div>
-                        <p className="text-2xl font-black text-primary-foreground">BOOK A CALL</p>
-                        <p className="text-xs font-bold text-primary-foreground/80">Let's explode your growth</p>
-                    </div>
-                </Link>
-            </motion.div>
-
+            </div>
         </div>
     )
 }
