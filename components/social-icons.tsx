@@ -99,12 +99,17 @@ export default function SocialIcons() {
       </div>
 
       <div className="max-w-6xl mx-auto relative z-10">
-        <h2 className="text-5xl md:text-6xl font-bold text-center mb-4 text-foreground animate-slide-up">
-          Connect With Me
+        <h2 className="text-5xl md:text-6xl font-bold text-center mb-6 text-foreground animate-slide-up">
+          Let’s connect
         </h2>
-        <p className="text-center text-muted-foreground text-lg mb-16 max-w-2xl mx-auto animate-slide-up">
-          Follow my social channels for daily insights, tips, and behind-the-scenes content
-        </p>
+        <div className="text-center text-muted-foreground text-lg mb-16 max-w-3xl mx-auto animate-slide-up space-y-4">
+          <p>
+            I share my work learnings and behind the scenes of social media marketing performance ads and brand growth across my platforms.
+          </p>
+          <p>
+            If you are a brand founder creator marketer or someone curious about digital growth you will feel at home here.
+          </p>
+        </div>
 
         <div className="flex flex-wrap justify-center gap-8">
           {socialIcons.map((icon) => (
@@ -119,11 +124,10 @@ export default function SocialIcons() {
               className={`relative group ${isVisible ? "animate-pop-in" : "opacity-0"}`}
             >
               <div
-                className={`w-32 h-32 rounded-2xl bg-gradient-to-br from-primary/10 to-accent/10 border-3 border-primary flex items-center justify-center transition-all duration-300 ${
-                  hoveredIcon === icon.name
+                className={`w-32 h-32 rounded-2xl bg-gradient-to-br from-primary/10 to-accent/10 border-3 border-primary flex items-center justify-center transition-all duration-300 ${hoveredIcon === icon.name
                     ? "border-primary bg-primary/20 scale-125 shadow-2xl -translate-y-3"
                     : "hover:border-accent hover:scale-110"
-                } cursor-pointer group-hover:animate-glow text-primary hover:text-accent`}
+                  } cursor-pointer group-hover:animate-glow text-primary hover:text-accent`}
               >
                 {icon.icon}
               </div>

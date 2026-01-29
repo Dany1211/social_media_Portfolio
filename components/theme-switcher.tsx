@@ -27,6 +27,7 @@ export function ThemeSwitcher() {
         { id: "cosmic", name: "Cosmic", icon: <Sparkles className="w-4 h-4" /> },
         { id: "luxury", name: "Luxury", icon: <Sun className="w-4 h-4" /> },
         { id: "minimal", name: "Minimal", icon: <Moon className="w-4 h-4" /> },
+        { id: "neo", name: "Neo", icon: <Palette className="w-4 h-4" /> },
     ]
 
     return (
@@ -47,8 +48,8 @@ export function ThemeSwitcher() {
                                     setIsOpen(false)
                                 }}
                                 className={`flex items-center gap-2 px-3 py-2 rounded-lg text-sm font-medium transition-colors ${theme === t.id
-                                        ? "bg-primary text-primary-foreground"
-                                        : "hover:bg-muted text-muted-foreground hover:text-foreground"
+                                    ? "bg-primary text-primary-foreground"
+                                    : "hover:bg-muted text-muted-foreground hover:text-foreground"
                                     }`}
                             >
                                 {t.icon}
