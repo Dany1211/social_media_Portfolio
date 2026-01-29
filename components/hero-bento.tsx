@@ -10,7 +10,7 @@ export function HeroBento() {
     const y2 = useTransform(scrollY, [0, 500], [0, -150])
 
     return (
-        <div className="relative min-h-[90vh] md:min-h-screen w-full overflow-hidden flex flex-col items-center justify-center bg-background">
+        <div className="relative min-h-[90vh] md:min-h-screen w-full overflow-hidden flex flex-col items-center justify-start pt-12 md:pt-16 bg-background">
 
             {/* BACKGROUND MASSIVE TEXT (Parallax moving down) */}
             <motion.div
@@ -29,13 +29,17 @@ export function HeroBento() {
             <div className="relative z-10 w-full max-w-7xl mx-auto px-4 h-full flex flex-col md:flex-row items-center justify-center">
 
                 {/* LEFT: Intro Text & CTA */}
-                <div className="flex-1 text-center md:text-left pt-20 md:pt-0 relative order-2 md:order-1">
+                <div className="flex-1 text-center md:text-left relative order-2 md:order-1">
                     <motion.div
                         initial={{ opacity: 0, x: -50 }}
                         animate={{ opacity: 1, x: 0 }}
                         transition={{ duration: 0.8 }}
                         className="relative z-20"
                     >
+                        <h3 className="text-xl md:text-2xl font-black text-foreground mb-2 flex items-center gap-2">
+                            <span className="w-8 h-1 bg-primary inline-block"></span>
+                            HI, I AM SNEHAL
+                        </h3>
                         <div className="bg-primary text-primary-foreground px-4 py-1 text-sm font-bold uppercase tracking-widest inline-block mb-6 border-2 border-foreground shadow-[4px_4px_0px_0px_var(--color-foreground)] -rotate-2">
                             Available for Hire
                         </div>
@@ -68,7 +72,7 @@ export function HeroBento() {
                         <img
                             src="/heroImg.jpg"
                             alt="Snehal Profile"
-                            className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500 scale-110 group-hover:scale-100"
+                            className="w-full h-full object-cover group-hover:grayscale-0 transition-all duration-500 scale-110 group-hover:scale-100"
                         />
 
                         {/* Floating Badge on Image */}
