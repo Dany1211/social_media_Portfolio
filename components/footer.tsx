@@ -53,7 +53,7 @@ export default function Footer() {
           <div>
             <h4 className="font-semibold text-foreground mb-4">Connect</h4>
             <ul className="space-y-2 text-muted-foreground">
-              {socialLinks.map(({ name, href}) => (
+              {socialLinks.map(({ name, href }) => (
                 <li key={name}>
                   <a
                     href={href}
@@ -72,6 +72,18 @@ export default function Footer() {
         {/* Bottom Note */}
         <div className="border-t border-border pt-8 text-center text-muted-foreground">
           <p>&copy; {currentYear} Snehal Patil. All rights reserved.</p>
+          <div className="mt-4 flex justify-center">
+            <a
+              href="https://dany24.vercel.app"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors border-b border-transparent hover:border-foreground pb-0.5"
+            >
+              <span className="font-semibold">Made by DAnY</span>
+              <span className="w-1 h-1 bg-muted-foreground rounded-full group-hover:bg-foreground"></span>
+              <span className="text-xs opacity-70 group-hover:opacity-100 transition-opacity">Click to view more about me</span>
+            </a>
+          </div>
         </div>
       </div>
     </footer>
