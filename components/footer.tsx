@@ -81,7 +81,7 @@ export default function Footer() {
             >
               <span className="font-semibold">Made by DAnY</span>
               <span className="w-1 h-1 bg-muted-foreground rounded-full group-hover:bg-foreground"></span>
-              <span className="text-xs opacity-70 group-hover:opacity-100 transition-opacity">Click to view more about me</span>
+              <span className="text-xs opacity-70 group-hover:opacity-100 transition-opacity">Click here to view more</span>
             </a>
           </div>
         </div>
