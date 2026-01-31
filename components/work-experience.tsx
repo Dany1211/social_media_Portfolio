@@ -6,27 +6,27 @@ import { motion, useScroll, useTransform } from "framer-motion"
 const experiences = [
   {
     id: 1,
-    company: "Ideatribe creative hub",
-    role: "Social Media Manager",
-    period: "April 2024 - Feb 2025",
-    location: "Pune (Remote)",
-    description: "Managed social media presence and community engagement.",
-  },
-  {
-    id: 2,
-    company: "Nexolve technologies",
-    role: "Social Media Strategist",
-    period: "April 2025 - Oct 2025",
-    location: "Pune (Remote)",
-    description: "Developed and executed strategic social media campaigns.",
-  },
-  {
-    id: 3,
     company: "Cohop",
     role: "Social Media Strategist",
     period: "Nov 2025 - Current",
     location: "Bengaluru (Remote)",
-    description: "Leading social media strategy for brand growth.",
+    description: "Leading social media strategy for brand growth. Strategised and managed viral, relatable content to connect with the target audience.",
+  },
+  {
+    id: 2,
+    company: "Nexolve",
+    role: "Social Media Strategist",
+    period: "April 2025 - Oct 2025",
+    location: "Pune (Remote)",
+    description: "Developed and executed strategic social media campaigns. Managed clients’ personal brands. Curated platform-specific content and handled all social media platforms.",
+  },
+  {
+    id: 3,
+    company: "Ideatribe",
+    role: "Social Media Manager",
+    period: "April 2024 - Feb 2025",
+    location: "Pune (Remote)",
+    description: "Managed social media presence for clients. Improved platform engagement through consistent content planning.",
   },
 ]
 
@@ -34,20 +34,20 @@ const achievements = [
   {
     id: 1,
     title: "Brand Growth",
-    metric: "150%",
+    metric: "120%",
     description: "Increase in organic engagement across client portfolios.",
   },
   {
     id: 2,
     title: "Viral Campaigns",
-    metric: "2M+",
+    metric: "1.1M+",
     description: "Views generated through strategic content planning.",
   },
   {
     id: 3,
     title: "Community Scaling",
-    metric: "10k+",
-    description: "Active community members grounded in authentic interaction.",
+    metric: "5k+",
+    description: "Active community members built through authentic interaction.",
   },
 ]
 

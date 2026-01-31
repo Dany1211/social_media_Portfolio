@@ -88,7 +88,7 @@ export function HeroReimagined() {
                     <div className="absolute bottom-20 -left-4 md:-left-12 bg-accent text-foreground border-2 border-foreground p-3 shadow-[4px_4px_0px_0px_var(--color-foreground)] rotate-12 hidden md:block animate-float" style={{ animationDelay: "2s" }}>
                         <div className="flex items-center gap-2">
                             <TrendingUp className="w-5 h-5" />
-                            <span className="font-black text-xl">1.2M+</span>
+                            <span className="font-black text-xl">1.1M+</span>
                         </div>
                         <p className="text-xs font-bold uppercase">Reach Generated</p>
                     </div>
