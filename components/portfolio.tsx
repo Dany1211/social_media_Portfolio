@@ -32,15 +32,15 @@ export default function Portfolio() {
   const sectionRef = useRef<HTMLDivElement>(null)
 
   return (
-    <section id="work" ref={sectionRef} className="py-24 px-4 md:px-12 bg-background">
+    <section id="work" ref={sectionRef} className="py-12 px-4 md:px-12 bg-background">
       <div className="max-w-6xl mx-auto">
-        <div className="mb-16 border-b-4 border-foreground pb-6">
-          <h2 className="text-5xl md:text-8xl font-black text-foreground uppercase tracking-tighter">
+        <div className="mb-8 border-b-4 border-foreground pb-4">
+          <h2 className="text-4xl md:text-6xl font-black text-foreground uppercase tracking-tighter">
             PROOF OF <span className="text-primary">WORK</span>
           </h2>
-          <div className="mt-6 flex items-start gap-4 max-w-2xl">
-            <FolderOpen className="w-8 h-8 text-foreground" />
-            <p className="text-xl font-bold font-mono text-muted-foreground">
+          <div className="mt-4 flex items-start gap-4 max-w-2xl">
+            <FolderOpen className="w-6 h-6 text-foreground" />
+            <p className="text-lg font-bold font-mono text-muted-foreground">
               I believe in showing the process and results, not just talking about them.
             </p>
           </div>
@@ -56,24 +56,27 @@ export default function Portfolio() {
               transition={{ delay: index * 0.1 }}
               onMouseEnter={() => setHoveredIndex(index)}
               onMouseLeave={() => setHoveredIndex(null)}
-              className="border-b-4 border-foreground py-8 md:py-12 group cursor-pointer relative overflow-hidden transition-colors hover:bg-foreground"
+              className="border-b-4 border-foreground py-6 md:py-8 group cursor-pointer relative overflow-hidden transition-colors hover:bg-foreground"
             >
               <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 relative z-10 px-4 md:px-8">
                 <div className="flex items-baseline gap-6 md:gap-12">
-                  <span className="text-2xl md:text-3xl font-mono font-bold text-muted-foreground group-hover:text-background/50 transition-colors">
+                  <span className="text-xl md:text-2xl font-mono font-bold text-muted-foreground group-hover:text-background/50 transition-colors">
                     {item.number}
                   </span>
                   <div>
-                    <h3 className="text-3xl md:text-5xl font-black text-foreground uppercase group-hover:text-background transition-colors">
+                    <h3 className="text-2xl md:text-4xl font-black text-foreground uppercase group-hover:text-background transition-colors">
                       {item.title}
                     </h3>
                     <p className="text-lg font-mono text-primary font-bold mt-2 group-hover:text-primary-foreground">{item.subtitle}</p>
                   </div>
                 </div>
 
-                <div className="opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-x-10 group-hover:translate-x-0">
-                  <div className="bg-primary text-primary-foreground p-4 rounded-full border-2 border-background">
-                    <ArrowUpRight className="w-8 h-8" />
+                <div className="opacity-100 transition-all duration-300">
+                  <div className="flex items-center gap-2 group-hover:gap-4 transition-all">
+                    <span className="text-xl font-black uppercase hidden md:block group-hover:text-background transition-colors">View</span>
+                    <div className="bg-primary text-primary-foreground p-3 rounded-full border-2 border-foreground group-hover:border-background group-hover:bg-background group-hover:text-foreground transition-all">
+                      <ArrowUpRight className="w-6 h-6 group-hover:rotate-45 transition-transform" />
+                    </div>
                   </div>
                 </div>
               </div>
