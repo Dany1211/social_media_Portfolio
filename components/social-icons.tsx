@@ -19,7 +19,7 @@ export default function SocialIcons() {
   const socialIcons: Icon[] = [
     {
       name: "Instagram",
-      url: "https://www.instagram.com/snehalpatil._.76?igsh=NWVleHJoYmRqa2Vr",
+      url: "https://www.instagram.com/_snehverse_",
       delay: 0,
       icon: (
         <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
