@@ -14,7 +14,7 @@ const navItems = [
 ]
 
 const socialItems = [
-    { name: "IG", icon: <Instagram className="w-5 h-5" />, href: "https://instagram.com" },
+    { name: "IG", icon: <Instagram className="w-5 h-5" />, href: "https://www.instagram.com/_snehverse_?igsh=MWV2cWR2eTBybHIyMg==" },
     {
         name: "X",
         icon: (

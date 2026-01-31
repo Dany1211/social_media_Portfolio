@@ -8,7 +8,7 @@ export default function Footer() {
   const socialLinks = [
     {
       name: "Instagram",
-      href: "https://www.instagram.com/snehalpatil._.76?igsh=NWVleHJoYmRqa2Vr",
+      href: "https://www.instagram.com/_snehverse_?igsh=MWV2cWR2eTBybHIyMg==",
     },
     {
       name: "LinkedIn",
