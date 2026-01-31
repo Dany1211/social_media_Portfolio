@@ -127,11 +127,9 @@ export function Navbar() {
                 </motion.div>
             </div>
 
-            {/* MOBILE NAV (Fixed Bottom Bar) */}
-            <div className="fixed bottom-0 left-0 right-0 z-50 md:hidden">
-                {/* Visual "Command Bar" */}
-                <div className="bg-background border-t-2 border-foreground p-2 grid grid-cols-5 items-center shadow-[0px_-4px_0px_0px_rgba(0,0,0,0.1)] gap-1">
-
+            {/* MOBILE NAV (Floating Kinetic Dock) */}
+            <div className="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 w-[90%] max-w-[400px] md:hidden">
+                <div className="bg-background border-2 border-foreground rounded-full p-2 flex items-center justify-between shadow-[4px_4px_0px_0px_var(--color-foreground)]">
                     {navItems.map((item) => {
                         const isActive = activeSection === item.href.replace("#", "")
                         return (
@@ -139,23 +137,23 @@ export function Navbar() {
                                 key={item.name}
                                 href={item.href}
                                 onClick={(e) => handleScroll(e, item.href)}
-                                className={`flex flex-col items-center justify-center gap-1 py-2 relative ${isActive ? "text-primary" : "text-muted-foreground"}`}
+                                className="relative flex flex-col items-center justify-center w-full"
                             >
-                                {isActive && (
-                                    <motion.div
-                                        layoutId="activeTabMobile"
-                                        className="absolute inset-0 bg-secondary border-t-2 border-foreground"
-                                        transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
-                                    />
-                                )}
-                                <div className={`relative z-10 transition-transform duration-300 ${isActive ? "-translate-y-1" : ""}`}>
+                                <div className={`relative z-10 p-2 rounded-full transition-all duration-300 ${isActive ? "bg-primary text-foreground -translate-y-4 border-2 border-foreground shadow-[2px_2px_0px_0px_var(--color-foreground)] scale-110" : "text-muted-foreground hover:text-foreground"}`}>
                                     {item.icon}
                                 </div>
-                                <span className="relative z-10 text-[9px] font-bold uppercase truncate">{item.name}</span>
+                                {isActive && (
+                                    <motion.span
+                                        initial={{ opacity: 0, y: 10 }}
+                                        animate={{ opacity: 1, y: 0 }}
+                                        className="absolute -bottom-1 text-[8px] font-black uppercase tracking-widest text-foreground"
+                                    >
+                                        {item.name}
+                                    </motion.span>
+                                )}
                             </Link>
                         )
                     })}
-
                 </div>
             </div>
 
