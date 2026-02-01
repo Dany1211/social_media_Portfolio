@@ -47,7 +47,7 @@ export function HeroReimagined() {
                     <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto animate-slide-up" style={{ animationDelay: "0.4s" }}>
                         <Link
                             href="#contact"
-                            className="group relative px-8 py-4 bg-foreground text-background font-black text-xl uppercase tracking-widest overflow-hidden border-2 border-foreground shadow-[4px_4px_0px_0px_var(--color-foreground)] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none transition-all"
+                            className="group relative px-8 py-4 bg-foreground text-background font-black text-xl uppercase tracking-widest overflow-hidden border-2 border-foreground shadow-[4px_4px_0px_0px_var(--color-foreground)] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none transition-all flex justify-center items-center"
                         >
                             <div className="absolute inset-0 w-0 bg-primary transition-all duration-[250ms] ease-out group-hover:w-full"></div>
                             <span className="relative flex items-center gap-2 group-hover:text-foreground">
@@ -57,7 +57,7 @@ export function HeroReimagined() {
 
                         <Link
                             href="#work"
-                            className="px-8 py-4 bg-background text-foreground font-bold text-xl uppercase tracking-widest border-2 border-foreground hover:bg-secondary transition-colors text-center"
+                            className="px-8 py-4 bg-background text-foreground font-bold text-xl uppercase tracking-widest border-2 border-foreground hover:bg-secondary transition-colors text-center flex justify-center items-center"
                         >
                             View Work
                         </Link>
