@@ -41,7 +41,10 @@ export function Navbar() {
                     setActiveSection(entry.target.id)
                 }
             })
-        }, { threshold: 0.5 })
+        }, {
+            rootMargin: "-40% 0px -40% 0px", // Detect when section is in the middle of the screen
+            threshold: 0 // Trigger as soon as it enters the middle zone
+        })
 
         sections.forEach(id => {
             const element = document.getElementById(id)
