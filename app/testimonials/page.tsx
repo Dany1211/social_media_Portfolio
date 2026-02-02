@@ -13,6 +13,8 @@ const testimonials = [
     "/testimonials/testimonial6.jpg",
 ]
 
+const rotations = [-2, 1.5, -3, 2, -1.5, 3]
+
 export default function TestimonialsPage() {
     return (
         <main className="h-screen w-full bg-background text-foreground overflow-hidden flex flex-col p-4 md:p-8">
@@ -47,14 +49,14 @@ export default function TestimonialsPage() {
                     {testimonials.map((src, index) => (
                         <motion.div
                             key={index}
-                            initial={{ opacity: 0, scale: 0.8 }}
-                            animate={{ opacity: 1, scale: 1 }}
+                            initial={{ opacity: 0, scale: 0.8, rotate: 0 }}
+                            animate={{ opacity: 1, scale: 1, rotate: rotations[index % rotations.length] }}
                             transition={{ delay: index * 0.1, duration: 0.4 }}
                             className="relative w-full h-full min-h-0"
                         >
                             <div className={`
                 w-full h-full relative bg-secondary border-4 border-foreground p-2 shadow-[4px_4px_0px_0px_var(--color-foreground)] 
-                transition-all duration-300 hover:shadow-none hover:translate-x-[2px] hover:translate-y-[2px] hover:z-50
+                transition-all duration-300 hover:shadow-none hover:translate-x-[2px] hover:translate-y-[2px] hover:z-50 hover:rotate-0
                 flex flex-col
                 `}>
                                 {/* Fake Phone Header */}
@@ -68,7 +70,7 @@ export default function TestimonialsPage() {
                                     <img
                                         src={src}
                                         alt={`Client Receipt ${index + 1}`}
-                                        className="absolute inset-0 w-full h-full object-cover object-top hover:object-contain transition-all duration-500"
+                                        className="absolute inset-0 w-full h-full object-contain p-2 transition-all duration-500"
                                     />
                                 </div>
                             </div>
