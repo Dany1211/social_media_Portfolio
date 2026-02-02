@@ -126,14 +126,7 @@ export default function Services() {
           ))}
         </div>
 
-        {/* Bottom Marquee */}
-        <div className="mt-20 border-y-2 border-foreground bg-accent py-3 overflow-hidden -mx-4 md:-mx-12 rotate-1">
-          <div className="animate-marquee whitespace-nowrap flex gap-12 text-accent-foreground font-black text-xl uppercase tracking-widest">
-            {Array(10).fill("READY TO SCALE? • BOOK A CALL • NO FLUFF • PURE ROI •").map((text, i) => (
-              <span key={i}>{text}</span>
-            ))}
-          </div>
-        </div>
+
       </div>
     </section>
   )
