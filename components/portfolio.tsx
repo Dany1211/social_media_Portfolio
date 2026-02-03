@@ -90,6 +90,14 @@ export default function Portfolio() {
               )
             }
 
+            if (item.title === "Performance Dashboards") {
+              return (
+                <Link href="/dashboards" key={item.number} className={wrapperClass}>
+                  {CardContent}
+                </Link>
+              )
+            }
+
             return (
               <motion.div
                 key={item.number}
