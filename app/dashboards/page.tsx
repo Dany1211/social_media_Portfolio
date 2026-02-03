@@ -29,7 +29,7 @@ export default function DashboardsPage() {
                         Back to Home
                     </Link>
                     <h1 className="text-5xl md:text-8xl font-black uppercase tracking-tighter leading-none">
-                        DATA <span className="text-primary text-stroke-foreground">VISUALIZED</span>
+                        PERFORMANCE <span className="text-primary text-stroke-foreground">DASHBOARDS</span>
                     </h1>
                 </div>
 
@@ -78,13 +78,6 @@ export default function DashboardsPage() {
                                         alt={`Dashboard ${index + 1}`}
                                         className="absolute inset-0 w-full h-full object-contain p-1"
                                     />
-
-                                    {/* Hover Overlay */}
-                                    <div className="absolute inset-0 bg-primary/10 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none flex items-center justify-center">
-                                        <span className="bg-foreground text-background font-bold px-3 py-1 rounded-full text-xs uppercase transform scale-90 group-hover:scale-100 transition-transform">
-                                            View Details
-                                        </span>
-                                    </div>
                                 </div>
                             </div>
                         </motion.div>
