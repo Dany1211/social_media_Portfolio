@@ -114,7 +114,7 @@ export default function SocialIcons() {
         </h2>
         <div className="text-center text-muted-foreground text-lg mb-16 max-w-3xl mx-auto animate-slide-up space-y-4">
           <p>
-            I share my work learnings and behind the scenes of social media marketing performance ads and brand growth across my platforms.
+            I share real learnings and behind the scenes breakdowns of social media marketing, performance ads, and how brands actually grow.
           </p>
           <p>
             If you are a brand founder creator marketer or someone curious about digital growth you will feel at home here.
