@@ -13,9 +13,9 @@ export default function Contact() {
         style={{ backgroundImage: 'linear-gradient(#000 1px, transparent 1px), linear-gradient(90deg, #000 1px, transparent 1px)', backgroundSize: '40px 40px' }}
       />
 
-      <div className="max-w-3xl mx-auto relative z-10 bg-background border-4 border-foreground p-8 md:p-12 shadow-[12px_12px_0px_0px_var(--color-foreground)]">
+      <div className="max-w-2xl mx-auto relative z-10 bg-background border-4 border-foreground p-6 md:p-10 shadow-[12px_12px_0px_0px_var(--color-foreground)]">
         <div className="text-center mb-12">
-          <h2 className="text-5xl md:text-7xl font-black text-foreground uppercase tracking-tighter mb-4">
+          <h2 className="text-4xl md:text-6xl font-black text-foreground uppercase tracking-tighter mb-4">
             LET'S <span className="text-primary italic">TALK</span>
           </h2>
           <p className="text-lg font-medium text-muted-foreground border-2 border-foreground bg-secondary inline-block px-4 py-2 shadow-[4px_4px_0px_0px_var(--color-foreground)]">
@@ -44,7 +44,7 @@ export default function Contact() {
           } catch (error) {
             console.error(error);
           }
-        }} className="space-y-6">
+        }} className="space-y-5">
 
           <input type="hidden" name="_captcha" value="false" />
           <input type="hidden" name="_template" value="table" />
@@ -55,7 +55,7 @@ export default function Contact() {
               type="text"
               name="name"
               required
-              className="w-full px-4 py-4 bg-background border-2 border-foreground focus:border-primary focus:shadow-[4px_4px_0px_0px_var(--color-primary)] outline-none transition-all placeholder:text-muted-foreground/50 font-bold"
+              className="w-full px-4 py-3 bg-background border-2 border-foreground focus:border-primary focus:shadow-[4px_4px_0px_0px_var(--color-primary)] outline-none transition-all placeholder:text-muted-foreground/50 font-bold"
               placeholder="YOUR NAME"
             />
           </div>
@@ -66,7 +66,7 @@ export default function Contact() {
               type="email"
               name="email"
               required
-              className="w-full px-4 py-4 bg-background border-2 border-foreground focus:border-primary focus:shadow-[4px_4px_0px_0px_var(--color-primary)] outline-none transition-all placeholder:text-muted-foreground/50 font-bold"
+              className="w-full px-4 py-3 bg-background border-2 border-foreground focus:border-primary focus:shadow-[4px_4px_0px_0px_var(--color-primary)] outline-none transition-all placeholder:text-muted-foreground/50 font-bold"
               placeholder="YOUR@EMAIL.COM"
             />
           </div>
@@ -76,15 +76,15 @@ export default function Contact() {
             <textarea
               name="message"
               required
-              rows={5}
-              className="w-full px-4 py-4 bg-background border-2 border-foreground focus:border-primary focus:shadow-[4px_4px_0px_0px_var(--color-primary)] outline-none transition-all resize-none placeholder:text-muted-foreground/50 font-bold"
+              rows={4}
+              className="w-full px-4 py-3 bg-background border-2 border-foreground focus:border-primary focus:shadow-[4px_4px_0px_0px_var(--color-primary)] outline-none transition-all resize-none placeholder:text-muted-foreground/50 font-bold"
               placeholder="TELL ME ABOUT YOUR PROJECT..."
             ></textarea>
           </div>
 
           <button
             type="submit"
-            className="w-full py-5 bg-foreground text-background font-black text-xl uppercase tracking-widest hover:bg-primary hover:text-foreground hover:shadow-[4px_4px_0px_0px_var(--color-foreground)] hover:-translate-y-1 transition-all duration-300 border-2 border-foreground flex items-center justify-center gap-3"
+            className="w-full py-4 bg-foreground text-background font-black text-xl uppercase tracking-widest hover:bg-primary hover:text-foreground hover:shadow-[4px_4px_0px_0px_var(--color-foreground)] hover:-translate-y-1 transition-all duration-300 border-2 border-foreground flex items-center justify-center gap-3"
           >
             Send Message
             <Send className="w-5 h-5" />
