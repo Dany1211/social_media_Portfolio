@@ -1,30 +1,32 @@
-# Portfolio website design
+# Social Media Marketing
 
-*Automatically synced with your [v0.app](https://v0.app) deployments*
+Performance-focused social media marketing with an emphasis on results, not vanity metrics.
 
-[![Deployed on Vercel](https://img.shields.io/badge/Deployed%20on-Vercel-black?style=for-the-badge&logo=vercel)](https://vercel.com/dany1211s-projects/v0-portfolio-website-design)
-[![Built with v0](https://img.shields.io/badge/Built%20with-v0.app-black?style=for-the-badge)](https://v0.app/chat/inBS5bPdw3O)
+I work on content strategy, paid advertisements, audience targeting, and analytics to drive measurable growth, engagement, and conversions.
 
-## Overview
+## What I Do
 
-This repository will stay in sync with your deployed chats on [v0.app](https://v0.app).
-Any changes you make to your deployed app will be automatically pushed to this repository from [v0.app](https://v0.app).
+- Content strategy and optimization  
+- Performance marketing (paid ads)  
+- Audience research and targeting  
+- Analytics and insights-driven improvements  
+- Campaign testing and iteration  
 
-## Deployment
+## Focus Areas
 
-Your project is live at:
+- Data-driven decision making  
+- Sustainable and scalable growth  
+- Converting reach into real outcomes  
 
-**[https://vercel.com/dany1211s-projects/v0-portfolio-website-design](https://vercel.com/dany1211s-projects/v0-portfolio-website-design)**
+## Tools & Platforms
 
-## Build your app
+- Instagram  
+- Facebook  
+- Google Ads  
+- Meta Ads Manager  
+- Analytics & reporting tools  
 
-Continue building your app on:
+## Philosophy
 
-**[https://v0.app/chat/inBS5bPdw3O](https://v0.app/chat/inBS5bPdw3O)**
-
-## How It Works
-
-1. Create and modify your project using [v0.app](https://v0.app)
-2. Deploy your chats from the v0 interface
-3. Changes are automatically pushed to this repository
-4. Vercel deploys the latest version from this repository
+I don’t chase likes or followers.  
+I focus on outcomes that actually matter — reach, engagement quality, and conversions.
