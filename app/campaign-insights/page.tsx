@@ -72,7 +72,7 @@ export default function CampaignInsightsPage() {
                 {/* Fixed height container to prevent layout shift */}
                 {/* Main Frame */}
                 {/* Fixed max-width container */}
-                <div className="relative w-full max-w-4xl bg-secondary border-2 border-foreground shadow-[8px_8px_0px_0px_var(--color-foreground)] flex flex-col">
+                <div className="relative w-full max-w-3xl bg-secondary border-2 border-foreground shadow-[8px_8px_0px_0px_var(--color-foreground)] flex flex-col">
 
                     {/* Browser Header */}
                     <div className="relative z-20 bg-background border-b-2 border-foreground px-3 py-2 flex items-center gap-3">
