@@ -70,10 +70,12 @@ export default function CampaignInsightsPage() {
 
                 {/* Main Frame */}
                 {/* Fixed height container to prevent layout shift */}
-                <div className="relative w-full max-w-4xl aspect-video bg-secondary border-2 border-foreground shadow-[8px_8px_0px_0px_var(--color-foreground)] overflow-hidden">
+                {/* Main Frame */}
+                {/* Fixed max-width container */}
+                <div className="relative w-full max-w-4xl bg-secondary border-2 border-foreground shadow-[8px_8px_0px_0px_var(--color-foreground)] flex flex-col">
 
                     {/* Browser Header */}
-                    <div className="absolute top-0 left-0 right-0 z-20 bg-background border-b-2 border-foreground px-3 py-2 flex items-center gap-3">
+                    <div className="relative z-20 bg-background border-b-2 border-foreground px-3 py-2 flex items-center gap-3">
                         <div className="flex gap-1.5">
                             <div className="w-2.5 h-2.5 rounded-full bg-red-500 border border-foreground"></div>
                             <div className="w-2.5 h-2.5 rounded-full bg-yellow-500 border border-foreground"></div>
@@ -85,8 +87,8 @@ export default function CampaignInsightsPage() {
                         </div>
                     </div>
 
-                    {/* Image Area */}
-                    <div className="absolute inset-0 top-[42px] z-10 bg-white">
+                    {/* Image Area - True 16:9 Aspect Ratio */}
+                    <div className="relative w-full aspect-video bg-white overflow-hidden">
                         <AnimatePresence mode="popLayout">
                             <motion.img
                                 key={currentIndex}
@@ -96,7 +98,7 @@ export default function CampaignInsightsPage() {
                                 animate={{ opacity: 1, x: 0 }}
                                 exit={{ opacity: 0, x: -100 }}
                                 transition={{ duration: 0.4, ease: "easeInOut" }}
-                                className="absolute inset-0 w-full h-full object-contain"
+                                className="absolute inset-0 w-full h-full object-cover"
                             />
                         </AnimatePresence>
                     </div>
