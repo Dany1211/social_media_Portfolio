@@ -42,7 +42,7 @@ export default function CampaignInsightsPage() {
     }
 
     return (
-        <main className="h-screen w-full bg-background text-foreground overflow-hidden flex flex-col p-4 md:p-8">
+        <main className="min-h-screen w-full bg-background text-foreground flex flex-col p-4 md:p-8">
             {/* HEADER */}
             <div className="flex-none max-w-7xl w-full mx-auto mb-8 flex flex-col md:flex-row items-start md:items-end justify-between gap-6">
                 <div>
