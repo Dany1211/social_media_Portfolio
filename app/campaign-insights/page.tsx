@@ -1,9 +1,9 @@
 "use client"
 
-import { motion, useScroll, useTransform } from "framer-motion"
+import { useState, useEffect } from "react"
+import { motion, AnimatePresence } from "framer-motion"
 import Link from "next/link"
-import { ArrowLeft, Zap } from "lucide-react"
-import { useRef } from "react"
+import { ArrowLeft, Zap, Pause, Play, ChevronLeft, ChevronRight } from "lucide-react"
 
 const campaigns = [
     "/campaigns/campaignsFirst/campaign1.jpeg",
@@ -15,8 +15,31 @@ const campaigns = [
 ]
 
 export default function CampaignInsightsPage() {
-    const containerRef = useRef<HTMLDivElement>(null)
-    const { scrollXProgress } = useScroll({ container: containerRef })
+    const [currentIndex, setCurrentIndex] = useState(0)
+    const [isPlaying, setIsPlaying] = useState(true)
+
+    // Auto-play effect
+    useEffect(() => {
+        let interval: NodeJS.Timeout
+
+        if (isPlaying) {
+            interval = setInterval(() => {
+                setCurrentIndex((prev) => (prev + 1) % campaigns.length)
+            }, 3000)
+        }
+
+        return () => clearInterval(interval)
+    }, [isPlaying])
+
+    const nextSlide = () => {
+        setCurrentIndex((prev) => (prev + 1) % campaigns.length)
+        setIsPlaying(false) // Pause on manual interaction
+    }
+
+    const prevSlide = () => {
+        setCurrentIndex((prev) => (prev - 1 + campaigns.length) % campaigns.length)
+        setIsPlaying(false)
+    }
 
     return (
         <main className="h-screen w-full bg-background text-foreground overflow-hidden flex flex-col p-4 md:p-8">
@@ -39,76 +62,91 @@ export default function CampaignInsightsPage() {
                     <div className="bg-yellow-400 p-2 rounded-full text-foreground border border-foreground">
                         <Zap className="w-5 h-5" />
                     </div>
-                    <div className="bg-gray-100 p-2 rounded-lg text-xs font-mono font-medium text-muted-foreground border border-foreground/10">
-                        Viral hits & creative wins.
-                    </div>
                 </div>
             </div>
 
-            {/* CAROUSEL CONTAINER */}
-            <div className="flex-1 w-full max-w-7xl mx-auto min-h-0 relative group/carousel">
+            {/* SLIDESHOW CONTAINER */}
+            <div className="flex-1 w-full max-w-5xl mx-auto min-h-0 flex flex-col items-center justify-center relative">
 
-                {/* Scroll Progress Bar */}
-                <div className="absolute top-0 left-0 right-0 h-1 bg-secondary border-b border-foreground mb-4 z-10 mx-4">
-                    <motion.div
-                        className="h-full bg-primary"
-                        style={{ scaleX: scrollXProgress, transformOrigin: "0%" }}
-                    />
+                {/* Main Frame */}
+                {/* Fixed height container to prevent layout shift */}
+                <div className="relative w-full max-w-4xl aspect-video bg-secondary border-2 border-foreground shadow-[8px_8px_0px_0px_var(--color-foreground)] overflow-hidden">
+
+                    {/* Browser Header */}
+                    <div className="absolute top-0 left-0 right-0 z-20 bg-background border-b-2 border-foreground px-3 py-2 flex items-center gap-3">
+                        <div className="flex gap-1.5">
+                            <div className="w-2.5 h-2.5 rounded-full bg-red-500 border border-foreground"></div>
+                            <div className="w-2.5 h-2.5 rounded-full bg-yellow-500 border border-foreground"></div>
+                            <div className="w-2.5 h-2.5 rounded-full bg-green-500 border border-foreground"></div>
+                        </div>
+                        <div className="flex-1 bg-white border border-foreground rounded px-2 py-1 text-[10px] font-mono flex justify-between items-center">
+                            <span className="truncate uppercase font-bold tracking-wider">Women-led growth community growth campaign</span>
+                            <span className="text-muted-foreground font-bold">{currentIndex + 1}/{campaigns.length}</span>
+                        </div>
+                    </div>
+
+                    {/* Image Area */}
+                    <div className="absolute inset-0 top-[42px] z-10 bg-white">
+                        <AnimatePresence mode="popLayout">
+                            <motion.img
+                                key={currentIndex}
+                                src={campaigns[currentIndex]}
+                                alt={`Campaign Slide ${currentIndex + 1}`}
+                                initial={{ opacity: 0, x: 100 }}
+                                animate={{ opacity: 1, x: 0 }}
+                                exit={{ opacity: 0, x: -100 }}
+                                transition={{ duration: 0.4, ease: "easeInOut" }}
+                                className="absolute inset-0 w-full h-full object-cover"
+                            />
+                        </AnimatePresence>
+                    </div>
                 </div>
 
-                <div
-                    ref={containerRef}
-                    className="h-full w-full overflow-x-auto flex items-center gap-8 px-8 snap-x snap-mandatory pb-8 pt-6 hide-scrollbar"
-                >
-                    {campaigns.map((src, index) => (
-                        <motion.div
-                            key={index}
-                            className="snap-center flex-none w-[85vw] md:w-[400px] aspect-[9/16] relative perspective-1000 group/card"
-                            initial={{ opacity: 0, scale: 0.9 }}
-                            whileInView={{ opacity: 1, scale: 1 }}
-                            transition={{ duration: 0.5 }}
-                        >
-                            <div className={`
-                                w-full h-full relative bg-secondary border-2 border-foreground p-1.5 
-                                shadow-[4px_4px_0px_0px_var(--color-foreground)] 
-                                transition-all duration-300 
-                                group-hover/card:shadow-[8px_8px_0px_0px_var(--color-foreground)] 
-                                group-hover/card:-translate-y-2
-                                flex flex-col
-                            `}>
-                                {/* Browser Header */}
-                                <div className="flex-none bg-background border-b-2 border-foreground p-1.5 mb-1.5 flex items-center gap-1.5">
-                                    <div className="flex gap-1">
-                                        <div className="w-2 h-2 rounded-full bg-red-500 border border-foreground"></div>
-                                        <div className="w-2 h-2 rounded-full bg-yellow-500 border border-foreground"></div>
-                                        <div className="w-2 h-2 rounded-full bg-green-500 border border-foreground"></div>
-                                    </div>
-                                    <div className="flex-1 bg-white border border-foreground rounded px-1.5 py-0.5 text-[8px] font-mono text-center overflow-hidden text-ellipsis whitespace-nowrap">
-                                        campaign_insight_{index + 1}.pdf
-                                    </div>
-                                </div>
+                {/* Controls */}
+                <div className="mt-8 flex items-center justify-center gap-6 w-full">
+                    <button
+                        onClick={prevSlide}
+                        className="p-3 border-2 border-foreground bg-white hover:bg-foreground hover:text-background transition-all shadow-[4px_4px_0px_0px_var(--color-foreground)] active:translate-y-1 active:shadow-none"
+                    >
+                        <ChevronLeft className="w-6 h-6" />
+                    </button>
 
-                                {/* Content */}
-                                <div className="flex-1 relative overflow-hidden bg-white border border-foreground/10 group-hover/card:bg-gray-50 transition-colors">
-                                    <img
-                                        src={src}
-                                        alt={`Campaign Insight ${index + 1}`}
-                                        className="absolute inset-0 w-full h-full object-cover p-1 group-hover/card:scale-105 transition-transform duration-500"
-                                    />
+                    <button
+                        onClick={() => setIsPlaying(!isPlaying)}
+                        className="px-6 py-3 border-2 border-foreground bg-primary text-primary-foreground hover:bg-foreground hover:text-background transition-all shadow-[4px_4px_0px_0px_var(--color-foreground)] active:translate-y-1 active:shadow-none min-w-[140px] flex items-center justify-center gap-2 font-bold font-mono uppercase tracking-widest text-sm"
+                    >
+                        {isPlaying ? (
+                            <>
+                                <Pause className="w-4 h-4" /> Pause
+                            </>
+                        ) : (
+                            <>
+                                <Play className="w-4 h-4" /> Play
+                            </>
+                        )}
+                    </button>
 
-                                    {/* Overlay Info (visible on hover) */}
-                                    <div className="absolute inset-0 bg-black/5 opacity-0 group-hover/card:opacity-100 transition-opacity pointer-events-none flex items-end justify-center p-4">
-                                        <div className="bg-white border-2 border-foreground px-3 py-1 shadow-[2px_2px_0px_0px_var(--color-foreground)] -rotate-2">
-                                            <span className="font-bold font-mono text-[10px] uppercase">View Case Study</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </motion.div>
+                    <button
+                        onClick={nextSlide}
+                        className="p-3 border-2 border-foreground bg-white hover:bg-foreground hover:text-background transition-all shadow-[4px_4px_0px_0px_var(--color-foreground)] active:translate-y-1 active:shadow-none"
+                    >
+                        <ChevronRight className="w-6 h-6" />
+                    </button>
+                </div>
+
+                {/* Dots */}
+                <div className="mt-6 flex gap-3">
+                    {campaigns.map((_, idx) => (
+                        <button
+                            key={idx}
+                            onClick={() => {
+                                setCurrentIndex(idx)
+                                setIsPlaying(false)
+                            }}
+                            className={`h-2.5 transition-all duration-300 border border-foreground ${idx === currentIndex ? "w-8 bg-foreground" : "w-2.5 bg-white hover:bg-gray-200"
+                                }`}
+                        />
                     ))}
-
-                    {/* End Spacer */}
-                    <div className="flex-none w-8"></div>
                 </div>
             </div>
         </main>
