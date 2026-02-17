@@ -98,6 +98,14 @@ export default function Portfolio() {
               )
             }
 
+            if (item.title === "Campaign Insights") {
+              return (
+                <Link href="/campaign-insights" key={item.number} className={wrapperClass}>
+                  {CardContent}
+                </Link>
+              )
+            }
+
             return (
               <motion.div
                 key={item.number}
