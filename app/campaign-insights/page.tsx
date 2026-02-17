@@ -96,7 +96,7 @@ export default function CampaignInsightsPage() {
                                 animate={{ opacity: 1, x: 0 }}
                                 exit={{ opacity: 0, x: -100 }}
                                 transition={{ duration: 0.4, ease: "easeInOut" }}
-                                className="absolute inset-0 w-full h-full object-cover"
+                                className="absolute inset-0 w-full h-full object-contain"
                             />
                         </AnimatePresence>
                     </div>
