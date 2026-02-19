@@ -11,6 +11,9 @@ export const metadata: Metadata = {
   title: "Snehal's World",
   description: "Professional portfolio for social media strategy, planning, and content creation",
   generator: "v0.app",
+  icons: {
+    icon: '/favicon-round.png',
+  },
 }
 
 export default function RootLayout({
