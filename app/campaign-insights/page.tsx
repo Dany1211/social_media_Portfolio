@@ -82,7 +82,7 @@ export default function CampaignInsightsPage() {
                             <div className="w-2.5 h-2.5 rounded-full bg-green-500 border border-foreground"></div>
                         </div>
                         <div className="flex-1 bg-white border border-foreground rounded px-2 py-1 text-[10px] font-mono flex justify-between items-center">
-                            <span className="truncate uppercase font-bold tracking-wider">Women-led growth community growth campaign</span>
+                            <span className="truncate uppercase font-bold tracking-wider">Women led growth community growth campaign</span>
                             <span className="text-muted-foreground font-bold">{currentIndex + 1}/{campaigns.length}</span>
                         </div>
                     </div>

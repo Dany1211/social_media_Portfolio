@@ -18,7 +18,7 @@ const experiences = [
     role: "Social Media Strategist",
     period: "April 2025 - Oct 2025",
     location: "Pune (Remote)",
-    description: "Developed and executed strategic social media campaigns. Managed clients’ personal brands. Curated platform-specific content and handled all social media platforms.",
+    description: "Developed and executed strategic social media campaigns. Managed clients’ personal brands. Curated platform specific content and handled all social media platforms.",
   },
   {
     id: 3,

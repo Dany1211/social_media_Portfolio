@@ -41,7 +41,7 @@ export function HeroReimagined() {
                     </h1>
 
                     <p className="text-base md:text-lg font-medium text-muted-foreground max-w-lg mb-4 leading-relaxed animate-fade-in text-center md:text-left" style={{ animationDelay: "0.2s" }}>
-                        Stop posting into the void. I build <span className="text-foreground font-black bg-primary/20 px-1">data-driven</span> strategies that turn followers into revenue-generating assets.
+                        Stop posting into the void. I build <span className="text-foreground font-black bg-primary/20 px-1">data driven</span> strategies that turn followers into revenue-generating assets.
                     </p>
 
                     <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto animate-slide-up" style={{ animationDelay: "0.4s" }}>

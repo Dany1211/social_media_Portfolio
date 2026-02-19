@@ -8,14 +8,14 @@ const services = [
     id: "01",
     title: "Social Strategy",
     tag: "THE BLUEPRINT",
-    description: "Data-backed roadmaps that define your brand voice, content pillars, and growth levers. I build the ecosystem where your content thrives.",
+    description: "Data backed roadmaps that define your brand voice, content pillars, and growth levers. I build the ecosystem where your content thrives.",
     color: "bg-red-400"
   },
   {
     id: "02",
     title: "Content Creation",
     tag: "VISUALS",
-    description: "High-fidelity vertical video and static assets designed for retention. From scripting to editing, I craft visuals that stop the scroll.",
+    description: "High fidelity vertical video and static assets designed for retention. From scripting to editing, I craft visuals that stop the scroll.",
     color: "bg-yellow-400"
   },
   {
@@ -29,7 +29,7 @@ const services = [
     id: "04",
     title: "Full Management",
     tag: "A-Z HANDLING",
-    description: "End-to-end execution. I handle scheduling, copywriting, posting, and optimization so you can focus on running your business.",
+    description: "End to end execution. I handle scheduling, copywriting, posting, and optimization so you can focus on running your business.",
     color: "bg-blue-400"
   },
   {
@@ -50,7 +50,7 @@ const services = [
     id: "07",
     title: "Profile Optimization",
     tag: "MAKEOVER",
-    description: "A complete audit of your digital storefront. I optimize bios, highlights, and grid aesthetics to maximize visitor-to-follower conversion.",
+    description: "A complete audit of your digital storefront. I optimize bios, highlights, and grid aesthetics to maximize visitor to follower conversion.",
     color: "bg-pink-400"
   },
   {
@@ -79,7 +79,7 @@ export default function Services() {
 
           <div className="max-w-sm">
             <p className="text-xl font-medium text-muted-foreground border-l-4 border-foreground pl-4">
-              Comprehensive social media solutions designed to take your brand from <span className="underline decoration-wavy decoration-accent">invisible</span> to <span className="bg-foreground text-background px-1 font-bold">ignorable-proof</span>.
+              Comprehensive social media solutions designed to take your brand from <span className="underline decoration-wavy decoration-accent">invisible</span> to <span className="bg-foreground text-background px-1 font-bold">unignorable</span>.
             </p>
           </div>
         </div>
