@@ -11,12 +11,24 @@ export default function Footer() {
       href: "https://www.instagram.com/_snehverse_",
     },
     {
+      name: "Twitter",
+      href: "https://x.com/Snehalpatil76?t=VFIxxeiAxl_JvubGToYgHQ&s=09",
+    },
+    {
       name: "LinkedIn",
       href: "https://www.linkedin.com/in/snehal-patil-14474b292?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
     },
     {
-      name: "X",
-      href: "https://x.com/Snehalpatil76?t=VFIxxeiAxl_JvubGToYgHQ&s=09",
+      name: "YouTube",
+      href: "https://youtube.com/@snehal5276?si=owbXzBCoYtpPxDJN",
+    },
+    {
+      name: "Facebook",
+      href: "https://www.facebook.com/share/1BmrxUBLSj/",
+    },
+    {
+      name: "Gmail",
+      href: "mailto:snehalpatil5276@gmail.com",
     },
   ]
 
